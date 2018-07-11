@@ -19,11 +19,11 @@ public class Planet {
 
     //** constructor for the planet class */
     public Planet(Planet p) {
-        xxPos = xP;
-        yyPos = yP;
-        xxVal = xV;
-        yyVal = yV;
-        mass = m;
-        imgFileName = img;
+        xxPos = p.xxPos;
+        yyPos = p.yyPos;
+        xxVal = p.xxVal;
+        yyVal = p.yyVal;
+        mass = p.mass;
+        imgFileName = p.imgFileName;
     }
 }
