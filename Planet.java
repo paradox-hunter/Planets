@@ -52,4 +52,22 @@ public class Planet {
         double force = (G * this.mass * p.mass) / r_square;
         return force;
     }
+
+    //** method to calculate force exerted in the X axis */
+
+    public double calcForceExertedByX(Planet p) {
+        double dx = p.xxPos - this.xxPos;
+        double f_x = (calcForceExertedBy(p) * dx) / calcDistance(p);
+        return f_x;
+    }
+
+    //** method to calculate force exerted in the Y axis */
+
+    public double calcForceExertedByY(Planet p) {
+        double dy = p.yyPos - this.yyPos;
+        double f_y = (calcForceExertedBy(p) * dy) / calcDistance(p);
+        return f_y;
+    }
+
+    
 }
