@@ -1,3 +1,4 @@
+//** class definition of Planet Class */
 public class Planet {
     public double xxPos;
     public double yyPos;
@@ -6,7 +7,7 @@ public class Planet {
     public double mass;
     public String imgFileName;
 
-    //**constructor function */
+    //** parameterized constructor function */
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
         xxPos = xP;
         yyPos = yP;
@@ -17,7 +18,8 @@ public class Planet {
 
     }
 
-    //** constructor for the planet class */
+    //** copy constructor for the planet class 
+    //** source for learning https://abhiandroid.com/java/constructor */
     public Planet(Planet p) {
         xxPos = p.xxPos;
         yyPos = p.yyPos;
@@ -25,5 +27,16 @@ public class Planet {
         yyVel = p.yyVel;
         mass = p.mass;
         imgFileName = p.imgFileName;
+    }
+
+    //** creating the methods for the class Planet */
+    //** method to calculate distance b/w the calling planet and the passed planet */
+
+    public double calcDistance(Planet p) {
+        dx = this.xxPos - p.xxPos;
+        dy = this.yyPos - p.yyPos;
+        dx *= dx;
+        dy *= dy;
+        return distance = Math.sqrt(dx + dy);
     }
 }
