@@ -95,5 +95,19 @@ public class Planet {
             return netForceInY;
     }
 
+        //** method to update the position of the planet */
 
+        public void update(double dt, double fX, double fY) {
+            // calculating the acceleration
+            double aX = fX / this.mass;
+            double aY = fY / this.mass;
+
+            // calculating the velocities
+            this.xxVel = this.xxVel + (aX * dt);
+            this.yyVel = this.yyVel + (aY * dt);
+
+            //updating the position
+            this.xxPos = this.xxPos + (this.xxVel * dt);
+            this.yyPos = this.yyPos + (this.yyVel * dt);
+        }
 }
