@@ -7,6 +7,9 @@ public class Planet {
     public double mass;
     public String imgFileName;
 
+    //** declaring the gravitational constant */
+    final static double G = 6.67e-11; 
+
     //** parameterized constructor function */
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
         xxPos = xP;
@@ -30,14 +33,23 @@ public class Planet {
     }
 
     //** creating the methods for the class Planet */
+
     //** method to calculate distance b/w the calling planet and the passed planet */
 
     public double calcDistance(Planet p) {
-        double distance;
         double dx = this.xxPos - p.xxPos;
         double dy = this.yyPos - p.yyPos;
         dx *= dx;
         dy *= dy;
-        return distance = Math.sqrt(dx + dy);
+        return Math.sqrt(dx + dy);
+    }
+
+    //** method to caculate the force exerted by the bodies */
+
+    public double calcForceExertedBy(Planet p) {
+        double r_square = this.calcDistance(p);
+        r_square *= r_square;
+        double force = (G * this.mass * p.mass) / r_square;
+        return force;
     }
 }
