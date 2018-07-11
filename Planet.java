@@ -33,8 +33,9 @@ public class Planet {
     //** method to calculate distance b/w the calling planet and the passed planet */
 
     public double calcDistance(Planet p) {
-        dx = this.xxPos - p.xxPos;
-        dy = this.yyPos - p.yyPos;
+        double distance;
+        double dx = this.xxPos - p.xxPos;
+        double dy = this.yyPos - p.yyPos;
         dx *= dx;
         dy *= dy;
         return distance = Math.sqrt(dx + dy);
