@@ -1,8 +1,8 @@
 public class Planet {
     public double xxPos;
     public double yyPos;
-    public double xxVal;
-    public double yyVal;
+    public double xxVel;
+    public double yyVel;
     public double mass;
     public String imgFileName;
 
@@ -10,8 +10,8 @@ public class Planet {
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
         xxPos = xP;
         yyPos = yP;
-        xxVal = xV;
-        yyVal = yV;
+        xxVel = xV;
+        yyVel = yV;
         mass = m;
         ImgFileName = img;
 
@@ -21,8 +21,8 @@ public class Planet {
     public Planet(Planet p) {
         xxPos = p.xxPos;
         yyPos = p.yyPos;
-        xxVal = p.xxVal;
-        yyVal = p.yyVal;
+        xxVal = p.xxVel;
+        yyVal = p.yyVel;
         mass = p.mass;
         imgFileName = p.imgFileName;
     }
