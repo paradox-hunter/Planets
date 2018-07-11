@@ -69,5 +69,31 @@ public class Planet {
         return f_y;
     }
 
-    
+    //** method to calculate the total force in the X direction */
+
+    public double calcNetForceExertedByX(Planet planets[]) {
+        double netForceInX = 0;
+        for (Planet p : planets) {
+            if (p.equals(this)) {
+                continue;
+            }
+            netForceInX += calcForceExertedByX(p);
+        }
+            return netForceInX;
+    }
+
+    //** method to calculate the total force in the Y direction */
+
+    public double calcNetForceExertedByY(Planet planets[]) {
+        double netForceInY = 0;
+        for (Planet p : planets) {
+            if (p.equals(this)) {
+                continue;
+            }
+            netForceInY += calcForceExertedByY(p);
+        }
+            return netForceInY;
+    }
+
+
 }
