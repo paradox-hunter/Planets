@@ -1,5 +1,25 @@
 public class NBody {
     public static void main(String[] args) {
+
+        double T = Double.parseDouble(args[0]);
+        double dt = Double.parseDouble(args[1]);
+        String filename = args[2];
+        
+        Planet[] planets = readPlanets(filename);
+        double scale = readRadius(filename);
+        StdDraw.setScale(-scale, scale);
+
+        //** clearing the drawing area */
+        StdDraw.clear();
+
+        //initializeing and creating the background
+        String fileToDraw = "./images/starfield.jpg";
+        StdDraw.picture(0, 0, fileToDraw); 
+
+        for (Planet p: planets) {
+            p.Draw();
+        }
+
         
     }
 
@@ -17,11 +37,14 @@ public class NBody {
     public static Planet[] readPlanets(String name) {
         In data = new In(name);
 
-        // reading the given file
+        // skipping the irrelevant data in the file for htis function
         data.readInt();
         data.readDouble();
 
+        //** creating an array of Planet objects */
         Planet[] planets = new Planet[5];
+
+        //reading the file data one by one
         for (int i = 0; i < 5; i++) {
             double xPos = data.readDouble();
             double yPos = data.readDouble();
@@ -30,6 +53,7 @@ public class NBody {
             double mass = data.readDouble();
             String img = data.readString();
 
+            //instantiating the array with Planet objects using the constructor
             planets[i] = new Planet(xPos, yPos, xVel, yVal, mass, img);
         }
         return planets;
