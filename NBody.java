@@ -1,3 +1,5 @@
+import sun.security.util.Length;
+
 public class NBody {
     public static void main(String[] args) {
 
@@ -40,7 +42,47 @@ public class NBody {
         // enabling buffering to avoid flickering during animation
         StdDraw.enableDoubleBuffering();
 
-        
+        double run_time = 0;
+        int numberOfPlanets = planets.length; 
+
+        while(run_time < T) {
+            double[] xForces = new double[numberOfPlanets];
+            double[] yForces = new double[numberOfPlanets];
+            
+            // calculating the net forces and storing in the arrays for each planets
+            for (int i = 0; i < numberOfPlanets; i++) {
+                xForces[i] = calcNetForceExertedByX(planets[i]);
+                yForces[i] = calcNetForceExertedByY(planets[i]);
+            }
+
+            // loop to update all the planets' positions
+            int planetIndex = 0;
+            while(planetIndex < numberOfPlanets) {
+                for(Planet k: planets) {
+                    k.update(dt, xForces[planetIndex], yForces[planetIndex]);
+                planetIndex += 1;
+                }
+            }
+
+            /* drawing the canvaas and the planets to create the animation 
+            * notice that this process if exactly the copy of the simple static
+            * canvas drawn earlier */
+
+            StdDraw.setScale(-radius, radius);
+            StdDraw.clear();
+            StdDraw.picture(0, 0, fileToDraw);
+            for (Planet p: planets) {
+                p.Draw();
+            }
+
+            /* using the show method of the StdDraw library to load the buffer */
+            /* Shows the drawing to the screen, and waits 2000 milliseconds. */
+		    StdDraw.show();
+		    StdDraw.pause(10);
+            // updating the loop variable run_time to calculate the next iteration of the position
+
+            run_time += dt;
+        }
         
     }
 
