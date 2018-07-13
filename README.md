@@ -22,11 +22,17 @@ java NBody [run time] [difference in time] [file location]
 
 Both the time must be in double.
 
-Example (if you hace cloned this repo)
+For example, running this arguement (if you hace cloned this repo)
 
 ```
 java NBody 157788000.0 25000.0 data/planets.txt
 ```
+
+Should result in this output - 
+
+![Sample Shot](https://github.com/paradox-hunter/Planet/blob/master/Sample_shot.png)
+
+## Licence Information
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
