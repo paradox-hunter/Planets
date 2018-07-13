@@ -1,29 +1,50 @@
 public class NBody {
     public static void main(String[] args) {
 
+        /** getting the command line arguements */
         double T = Double.parseDouble(args[0]);
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
+
+        /** Drawing tha canvas, the background and the planets fro the given input file */
         
+        /** initializing an array of planets */
         Planet[] planets = readPlanets(filename);
+
+        /**reading radius from the given file */
         double radius = readRadius(filename);
+
+        /** creating the canvas */
         StdDraw.setScale(-radius, radius);
 
-        //** clearing the drawing area */
+        /** clearing the drawing area */
         StdDraw.clear();
 
-        //initializeing and creating the background
+        /** initializeing and creating the background
+         */
         String fileToDraw = "./images/starfield.jpg";
         StdDraw.picture(0, 0, fileToDraw); 
 
+        /** drawing the array of planets on the canvas */
         for (Planet p: planets) {
             p.Draw();
         }
 
+        /** Animation part 
+         * The idea is to clear the canvas and draw the pictures of the planets
+         * on the background. 
+         * Then we discretize the time, calculate the change in the position of the planets,
+         * and then redraw the universe. */
+        
+
+        // enabling buffering to avoid flickering during animation
+        StdDraw.enableDoubleBuffering();
+
+        
         
     }
 
-    // method to fetch the radius from the file
+    /** method to fetch the radius from the file */
 
     public static double readRadius(String name) {
         In in = new In(name);
@@ -41,7 +62,7 @@ public class NBody {
         data.readInt();
         data.readDouble();
 
-        //** creating an array of Planet objects */
+        /** creating an array of Planet objects */
         Planet[] planets = new Planet[5];
 
         //reading the file data one by one
