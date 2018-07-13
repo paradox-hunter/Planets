@@ -1,5 +1,3 @@
-import sun.security.util.Length;
-
 public class NBody {
     public static void main(String[] args) {
 
@@ -51,10 +49,9 @@ public class NBody {
             
             // calculating the net forces and storing in the arrays for each planets
             for (int i = 0; i < numberOfPlanets; i++) {
-                xForces[i] = calcNetForceExertedByX(planets[i]);
-                yForces[i] = calcNetForceExertedByY(planets[i]);
+                xForces[i] = planets[i].calcNetForceExertedByX(planets);
+                yForces[i] = planets[i].calcNetForceExertedByY(planets);
             }
-
             // loop to update all the planets' positions
             int planetIndex = 0;
             while(planetIndex < numberOfPlanets) {
@@ -64,7 +61,7 @@ public class NBody {
                 }
             }
 
-            /* drawing the canvaas and the planets to create the animation 
+            /* drawing the canvas and the planets to create the animation 
             * notice that this process if exactly the copy of the simple static
             * canvas drawn earlier */
 
@@ -82,6 +79,15 @@ public class NBody {
             // updating the loop variable run_time to calculate the next iteration of the position
 
             run_time += dt;
+        }
+
+        /* printing the state of the universe */
+        StdOut.printf("%d\n", planets.length);
+        StdOut.printf("%.2e\n", radius);
+        for (int i = 0; i < planets.length; i++) {
+            StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+            planets[i].xxPos, planets[i].yyPos, planets[i].xxVel,
+            planets[i].yyVel, planets[i].mass, planets[i].imgFileName);   
         }
         
     }
