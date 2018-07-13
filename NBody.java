@@ -107,14 +107,14 @@ public class NBody {
         In data = new In(name);
 
         // skipping the irrelevant data in the file for htis function
-        data.readInt();
+        int N = data.readInt();
         data.readDouble();
 
         /** creating an array of Planet objects */
-        Planet[] planets = new Planet[5];
+        Planet[] planets = new Planet[N];
 
         //reading the file data one by one
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < N; i++) {
             double xPos = data.readDouble();
             double yPos = data.readDouble();
             double xVel = data.readDouble();
