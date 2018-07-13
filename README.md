@@ -30,7 +30,7 @@ java NBody 157788000.0 25000.0 data/planets.txt
 
 Should result in this output - 
 
-![Sample Shot](https://github.com/paradox-hunter/Planet/blob/master/Sample_shot.png)
+![Sample Shot](https://github.com/paradox-hunter/Planets/blob/master/Sample_shot.png)
 
 ## Licence Information
 
