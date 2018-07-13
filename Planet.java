@@ -114,6 +114,7 @@ public class Planet {
     //** method to draw the planets */
 
     public void Draw() {
-        StdDraw.picture(this.xxPos, this.yyPos, this.imgFileName);
+        String filename = "./images/" + this.imgFileName;
+        StdDraw.picture(this.xxPos, this.yyPos, filename);
     }
 }

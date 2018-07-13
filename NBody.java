@@ -6,8 +6,8 @@ public class NBody {
         String filename = args[2];
         
         Planet[] planets = readPlanets(filename);
-        double scale = readRadius(filename);
-        StdDraw.setScale(-scale, scale);
+        double radius = readRadius(filename);
+        StdDraw.setScale(-radius, radius);
 
         //** clearing the drawing area */
         StdDraw.clear();
