@@ -106,7 +106,7 @@ public class NBody {
     public static Planet[] readPlanets(String name) {
         In data = new In(name);
 
-        // skipping the irrelevant data in the file for htis function
+        // skipping the irrelevant data in the file for this function
         int N = data.readInt();
         data.readDouble();
 
