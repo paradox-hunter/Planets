@@ -38,4 +38,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* This project is taken from the Berkeley classes. 
+* This project is an implementation of the project assignment from CS61B from the UCLA. 
